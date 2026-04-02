@@ -1,0 +1,19 @@
+services:
+  tdx:
+    build: .
+    image: tdx-kylin-native
+    container_name: tdx_app
+    network_mode: "host"  # 方便连接行情服务器
+    environment:
+      - DISPLAY=${DISPLAY}
+      - QT_X11_NO_MITSHM=1 # 修复某些显示闪烁问题
+      - XDG_RUNTIME_DIR=/run/user/1000
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - /etc/localtime:/etc/localtime:ro
+      - $HOME/.Xauthority:/root/.Xauthority:rw # 权限认证
+      - ./tdx_data:/root/.local/share/tdxcfv # 持久化你的配置和自选股
+    devices:
+      - /dev/dri:/dev/dri     # 开启硬件加速（减少 CPU 占用）
+      - /dev/snd:/dev/snd     # 开启声音（报警音）
+    privileged: true          # 麒麟版内部 Wine 可能需要较高权限

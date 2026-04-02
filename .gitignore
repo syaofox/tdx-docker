@@ -1,0 +1,24 @@
+# 持久化数据目录
+tdx_data/
+
+# 构建缓存
+*.log
+*.tmp
+
+# 编辑器临时文件
+*.swp
+*.swo
+*~
+.*.swp
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# Docker 相关（可选，如果不需要提交镜像）
+# *.tar
+# *.tar.gz
+
+# 环境变量文件
+.env
+.env.local
