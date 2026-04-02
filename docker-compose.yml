@@ -12,7 +12,8 @@ services:
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
       - /etc/localtime:/etc/localtime:ro
       - $HOME/.Xauthority:/root/.Xauthority:rw # 权限认证
-      - ./tdx_data:/root/.local/share/tdxcfv # 持久化你的配置和自选股
+      - ./tdx_data/drive_c/tc/T0002:/root/.local/share/tdxcfv/drive_c/tc/T0002
+      - ./tdx_data/drive_c/tc/vipdoc:/root/.local/share/tdxcfv/drive_c/tc/vipdoc
     devices:
       - /dev/dri:/dev/dri     # 开启硬件加速（减少 CPU 占用）
       - /dev/snd:/dev/snd     # 开启声音（报警音）
