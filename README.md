@@ -10,28 +10,33 @@
 
 ## 快速开始
 
-### 1. 克隆或下载项目
+### 1. 下载通达信安装包
+```bash
+wget https://data.tdx.com.cn/kylin/com.tdx.tdxcfv_7.64_amd64.deb
+```
+
+### 2. 克隆或下载项目
 ```bash
 git clone <repository-url>
 cd tdx-docker
 ```
 
-### 2. 设置 X11 权限
+### 3. 设置 X11 权限
 ```bash
 xhost +local:docker
 ```
 
-### 3. 构建镜像
+### 4. 构建镜像
 ```bash
 docker build -t tdx-kylin-native .
 ```
 
-### 4. 启动容器
+### 5. 启动容器
 ```bash
 docker compose up -d
 ```
 
-### 5. 查看运行状态
+### 6. 查看运行状态
 ```bash
 docker ps
 docker logs tdx_app
