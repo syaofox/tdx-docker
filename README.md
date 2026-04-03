@@ -15,10 +15,10 @@
 wget https://data.tdx.com.cn/kylin/com.tdx.tdxcfv_7.64_amd64.deb
 ```
 
-### 2. 克隆或下载项目
+### 2. 构建镜像
+如果项目目录中存在 `com.tdx.tdxcfv_7.64_amd64.deb`，则使用本地文件；否则会自动从网络下载。
 ```bash
-git clone <repository-url>
-cd tdx-docker
+docker build -t tdx-kylin-native .
 ```
 
 ### 3. 设置 X11 权限
@@ -26,12 +26,7 @@ cd tdx-docker
 xhost +local:docker
 ```
 
-### 4. 构建镜像
-```bash
-docker build -t tdx-kylin-native .
-```
-
-### 5. 启动容器
+### 4. 启动容器
 ```bash
 docker compose up -d
 ```
